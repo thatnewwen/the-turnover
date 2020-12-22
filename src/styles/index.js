@@ -1,5 +1,6 @@
+import typography from './typography'
 import prism from './prism'
 import theme from './theme'
 import reset from './reset'
 
-export { theme, reset, prism }
+export { typography, theme, reset, prism }

@@ -9,7 +9,7 @@ const StyledHeader = styled.nav`
     color: ${(props) => (props.invert ? props.theme.colors.greyLight : props.theme.colors.greyDark)};
     font-weight: 400;
     font-style: normal;
-    font-family: 'Source Sans Pro', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial',
+    font-family: 'Inter', 'Source Sans Pro', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial',
       sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   }
 `

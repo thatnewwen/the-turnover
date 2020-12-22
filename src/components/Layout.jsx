@@ -1,33 +1,40 @@
 /* eslint no-unused-expressions: 0 */
 /* eslint react/destructuring-assignment: 0 */
 
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
-import { Global, css } from '@emotion/core'
-import { ThemeProvider } from 'emotion-theming'
-import '@reach/skip-nav/styles.css'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { StaticQuery, graphql } from "gatsby";
+import { Global, css } from "@emotion/core";
+import { ThemeProvider } from "emotion-theming";
+import "@reach/skip-nav/styles.css";
 
-import Footer from './Footer'
-import SEO from './SEO'
-import SkipNavLink from './SkipNavLink'
-import { theme, reset } from '../styles'
+import Footer from "./Footer";
+import SEO from "./SEO";
+import SkipNavLink from "./SkipNavLink";
+import Sidebar from "./Sidebar";
+import { theme, reset } from "../styles";
 
-import 'typeface-lora'
-import 'typeface-source-sans-pro'
+import "typeface-lora";
+import "typeface-source-sans-pro";
 
 const globalStyle = css`
   ${reset}
   h1, h2, h3, h4, h5, h6 {
-    color: ${theme.colors.black};
+    color: ${theme.colors.primary};
+    font-family: "Inter";
+    text-transform: uppercase;
+    font-weight: 800;
+    font-style: italic;
   }
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   body {
-    color: ${theme.colors.greyDarker};
+    color: ${theme.colors.primary};
     background-color: ${theme.colors.bg};
+    font-family: "Inter";
+    font-size: 12px;
   }
   ::selection {
     color: ${theme.colors.bg};
@@ -46,7 +53,7 @@ const globalStyle = css`
   }
   @media (max-width: ${theme.breakpoints.m}) {
     html {
-      font-size: 16px !important;
+      font-size: 12px !important;
     }
   }
   @media (max-width: ${theme.breakpoints.s}) {
@@ -69,21 +76,21 @@ const globalStyle = css`
       font-size: 0.563rem !important;
     }
   }
-`
+`;
 
 const PureLayout = ({ children, data, customSEO }) => (
   <ThemeProvider theme={theme}>
     <>
       <Global styles={globalStyle} />
       <SkipNavLink />
+      <Sidebar>
+        <h1>{data.prismicHomepage.data.title.text}</h1>
+      </Sidebar>
       {!customSEO && <SEO />}
       {children}
-      <Footer>
-        <div dangerouslySetInnerHTML={{ __html: data.prismicHomepage.data.footer.html }} />
-      </Footer>
     </>
   </ThemeProvider>
-)
+);
 
 class Layout extends Component {
   render() {
@@ -93,7 +100,10 @@ class Layout extends Component {
           query LayoutQuery {
             prismicHomepage {
               data {
-                footer {
+                title {
+                  text
+                }
+                content {
                   html
                 }
               }
@@ -106,22 +116,22 @@ class Layout extends Component {
           </PureLayout>
         )}
       />
-    )
+    );
   }
 }
 
-export default Layout
+export default Layout;
 
 Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
-}
+};
 
 PureLayout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
   data: PropTypes.object.isRequired,
   customSEO: PropTypes.bool,
-}
+};
 
 PureLayout.defaultProps = {
   customSEO: false,
-}
+};
