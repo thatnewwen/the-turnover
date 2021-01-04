@@ -12,30 +12,48 @@ const Hero = styled.header`
   align-items: center;
 `;
 
-const HeroInner = styled(Wrapper)`
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+const HeroInner = styled.div`
+  max-width: ${(props) => props.theme.maxWidth};
+  margin: 0 auto;
+  padding: 0 2rem;
+  padding-right: 0px;
+  @media (max-width: ${(props) => props.theme.breakpoints.m}) {
+    padding: 0 1.5rem;
+  }
+  /* padding-top: 6rem;
+  padding-bottom: 6rem; */
   min-height: 100vh;
   .logo {
+    display: none;
     max-width: 250px;
     padding-bottom: 60px;
+  }
+  .arrow {
+    display: none;
+    @media (max-width: ${(props) => props.theme.breakpoints.s}) {
+      display: block;
+      bottom: 20px;
+      right: 20px;
+      position: absolute;
+      width: max-content;
+    }
   }
   h1 {
     margin-bottom: 2rem;
   }
   @media (max-width: ${(props) => props.theme.breakpoints.l}) {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    /* padding-top: 10rem;
+    padding-bottom: 10rem; */
   }
   @media (max-width: ${(props) => props.theme.breakpoints.m}) {
-    padding-top: 8rem;
+    /* padding-top: 8rem;
     padding-bottom: 8rem;
-    padding-left: 5rem;
+    padding-left: 5rem; */
   }
   @media (max-width: ${(props) => props.theme.breakpoints.s}) {
-    padding-top: 6rem;
+    /* padding-top: 6rem;
     padding-bottom: 6rem;
-    padding-left: 5rem;
+    padding-left: 5rem; */
   }
 `;
 
@@ -84,8 +102,6 @@ const Social = styled.ul`
   }
 `;
 
-const IndexWrapper = Wrapper.withComponent("main");
-
 class Index extends Component {
   render() {
     const {
@@ -98,6 +114,7 @@ class Index extends Component {
             <img className="logo" src={logo} alt="Logo" />
             <CategorySection categories={categories.nodes}></CategorySection>
             {/* <Listing posts={posts.nodes} /> */}
+            <div className="arrow">Scroll for More ➟</div>
           </HeroInner>
         </Hero>
       </Layout>
@@ -182,6 +199,19 @@ export const pageQuery = graphql`
           name
           summary {
             html
+          }
+          posts {
+            post {
+              uid
+              document {
+                data {
+                  title {
+                    text
+                  }
+                  description
+                }
+              }
+            }
           }
         }
       }

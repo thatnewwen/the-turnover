@@ -24,7 +24,7 @@ const StyledSidebar = styled.div`
 
   .rectangle {
     width: 20px;
-    height: 462px;
+    height: inherit;
     background: #542bff;
     text-align: center;
     position: absolute;

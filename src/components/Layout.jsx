@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import { Global, css } from "@emotion/core";
+import styled from "@emotion/styled";
 import { ThemeProvider } from "emotion-theming";
 import "@reach/skip-nav/styles.css";
 
@@ -16,6 +17,8 @@ import { theme, reset } from "../styles";
 
 import "typeface-lora";
 import "typeface-source-sans-pro";
+import { Link } from "gatsby";
+import tower from "../styles/images/tower.png";
 
 const globalStyle = css`
   ${reset}
@@ -34,7 +37,7 @@ const globalStyle = css`
     color: ${theme.colors.primary};
     background-color: ${theme.colors.bg};
     font-family: "Inter";
-    font-size: 12px;
+    font-size: 14px;
   }
   ::selection {
     color: ${theme.colors.bg};
@@ -78,14 +81,61 @@ const globalStyle = css`
   }
 `;
 
+const StyledLink = styled(Link)`
+  font-size: 14px;
+  color: ${(props) => props.theme.colors.primary};
+  font-style: normal;
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
+    font-size: 12px;
+  }
+`;
+
+const Menu = styled.div`
+  position: fixed;
+  top: 50px;
+  right: 70px;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
+    top: 20px;
+    right: 20px;
+  }
+`;
+
+const Tower = styled.div`
+  position: fixed;
+  bottom: 0;
+  right: 50px;
+  .tower {
+    @media (max-width: ${(props) => props.theme.breakpoints.s}) {
+      display: none;
+    }
+  }
+
+  img {
+    width: 100px;
+  }
+`;
+
 const PureLayout = ({ children, data, customSEO }) => (
   <ThemeProvider theme={theme}>
     <>
       <Global styles={globalStyle} />
       <SkipNavLink />
       <Sidebar>
-        <h1>{data.prismicHomepage.data.title.text}</h1>
+        <StyledLink to="/">
+          <h1>{data.prismicHomepage.data.title.text}</h1>
+        </StyledLink>
       </Sidebar>
+      <Menu>
+        <StyledLink to="https://instagram.com/theturnover.club">
+          Instagram
+        </StyledLink>{" "}
+        —{" "}
+        <StyledLink to="https://twitter.com/theturnover23">Twitter</StyledLink>
+      </Menu>
+      <Tower>
+        <img className="tower" src={tower} alt="Tower" />
+      </Tower>
       {!customSEO && <SEO />}
       {children}
     </>

@@ -1,7 +1,7 @@
 const theme = {
   colors: {
     primary: "#5135FF",
-    bg: "#BBCDFF",
+    bg: "#ebedf2",
     secondary: "6A94FF",
     black: "#000",
     greyLight: "#EBEDF2",
@@ -10,7 +10,7 @@ const theme = {
     greyDark: "#303643",
     greyDarker: "#1c252b",
   },
-  maxWidth: "1000px",
+  maxWidth: "100vw",
   maxWidthText: "720px",
   breakpoints: {
     xs: "400px",
