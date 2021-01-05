@@ -14,11 +14,13 @@ const StyledSidebar = styled.div`
     transform: rotate(-90deg);
     font-size: 26px;
     position: fixed;
-    bottom: 85px;
-    left: -72px;
+    bottom: 0px;
+    left: 16px;
+    transform-origin: top left;
+    margin-bottom: 0;
 
     @media (max-width: ${(props) => props.theme.breakpoints.s}) {
-      left: -82px;
+      left: 14px;
     }
   }
 
@@ -33,6 +35,12 @@ const StyledSidebar = styled.div`
     margin: auto;
     bottom: 240px;
     border-radius: 0px;
+
+    @media (max-width: ${(props) => props.theme.breakpoints.s}) {
+      width: 21px;
+      left: -1px;
+      bottom: 267px;
+    }
   }
 `;
 

@@ -98,6 +98,8 @@ const Menu = styled.div`
   @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     top: 20px;
     right: 20px;
+    position: relative;
+    text-align: right;
   }
 `;
 

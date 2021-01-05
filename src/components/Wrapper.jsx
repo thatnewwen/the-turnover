@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   margin-left: 60px;
   @media (max-width: ${(props) => props.theme.breakpoints.m}) {
     padding: 0 1.5rem;
+    padding-left: 0rem;
   }
 `;
 
