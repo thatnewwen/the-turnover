@@ -13,7 +13,7 @@ import {
 } from "../components";
 import Categories from "../components/Listing/Categories";
 import website from "../../config/website";
-import defaultImage from "../styles/images/to.png";
+import defaultImage from "../styles/images/tobanner.png";
 
 const Hero = styled.header`
   background-color: ${(props) => props.theme.colors.greyLight};

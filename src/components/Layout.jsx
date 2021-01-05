@@ -135,9 +135,11 @@ const PureLayout = ({ children, data, customSEO }) => (
         —{" "}
         <StyledLink to="https://twitter.com/theturnover23">Twitter</StyledLink>
       </Menu>
-      <Tower>
-        <img className="tower" src={tower} alt="Tower" />
-      </Tower>
+      <StyledLink to="https://open.spotify.com/show/28saIL7duK3UhbUx5eUChV?si=sfCMY1qDRQi5pcH2_m7zXA">
+        <Tower>
+          <img className="tower" src={tower} alt="Tower" />
+        </Tower>
+      </StyledLink>
       {!customSEO && <SEO />}
       {children}
     </>
