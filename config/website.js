@@ -6,11 +6,11 @@ module.exports = {
   headline: "The Turnover", // Headline for schema.org JSONLD
   url: "https://theturnover.club", // Domain of your site. No trailing slash!
   siteLanguage: "en", // Language Tag on <html> element
-  logo: "/logos/logo-1024.png", // Used for SEO
+  logo: "static/logos/logo-1024.png", // Used for SEO
   ogLanguage: "en_US", // Facebook Language
 
   // JSONLD / Manifest
-  favicon: "src/favicon.png", // Used for manifest favicon generation
+  favicon: "static/logos/logo-1024.png", // Used for manifest favicon generation
   shortName: "Prismic", // shortname for manifest. MUST be shorter than 12 characters
   author: "commonworks", // Author for schemaORGJSONLD
   themeColor: "#3D63AE",
