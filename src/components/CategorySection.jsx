@@ -14,7 +14,7 @@ const CategorySectionContainer = styled.div`
   padding-left: 60px;
   padding-top: 6rem;
   padding-bottom: 6rem;
-  height: 100vh;
+  height: 100%;
 
   h2 {
     font-family: "Inter";

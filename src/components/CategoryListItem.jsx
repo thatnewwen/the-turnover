@@ -11,6 +11,7 @@ const Item = styled.li`
 const ItemDetails = styled.div`
   width: 700px;
   margin-left: 100px;
+  margin-right: 50px;
 `;
 
 const ReadMore = styled(Link)`

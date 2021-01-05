@@ -22,7 +22,7 @@ const HeroInner = styled.div`
   }
   /* padding-top: 6rem;
   padding-bottom: 6rem; */
-  min-height: 100vh;
+  min-height: 100%;
   .logo {
     display: none;
     max-width: 250px;

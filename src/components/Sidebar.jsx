@@ -7,7 +7,7 @@ const StyledSidebar = styled.div`
   width: 60px;
   left: 0;
   top: 0;
-  height: 100vh;
+  height: 100%;
   font-family: "Inter";
 
   h1 {

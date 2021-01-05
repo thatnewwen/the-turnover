@@ -13,6 +13,7 @@ import {
 } from "../components";
 import Categories from "../components/Listing/Categories";
 import website from "../../config/website";
+import defaultImage from "../styles/images/to.png";
 
 const Hero = styled.header`
   background-color: ${(props) => props.theme.colors.greyLight};
@@ -48,6 +49,7 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
         desc={data.description}
         node={prismicPost}
         article
+        banner={defaultImage}
       />
       <Hero>
         <Wrapper>
