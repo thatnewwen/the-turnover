@@ -48,7 +48,7 @@ const globalStyle = css`
     transition: all 0.4s ease-in-out;
     text-decoration: none;
     font-weight: 700;
-    font-style: italic;
+    font-style: normal;
     &:hover,
     &:focus {
       text-decoration: underline;
