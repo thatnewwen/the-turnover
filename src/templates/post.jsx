@@ -19,6 +19,11 @@ const Hero = styled.header`
   background-color: ${(props) => props.theme.colors.greyLight};
   padding-top: 1rem;
   padding-bottom: 1rem;
+
+  h2 {
+    font-size: 2rem;
+    color: #a193ff;
+  }
 `;
 
 const Headline = styled.p`
@@ -58,6 +63,7 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
             {data.date} — {categories && <Categories categories={categories} />}
           </Headline>
           <h1>{data.title.text}</h1>
+          <h2>{data.subtitle.text}</h2>
         </Wrapper>
       </Hero>
       <PostWrapper id={website.skipNavId}>
@@ -94,8 +100,11 @@ export const pageQuery = graphql`
         title {
           text
         }
+        subtitle {
+          text
+        }
         description
-        date(formatString: "DD.MM.YYYY")
+        date(formatString: "MM.DD.YYYY")
         categories {
           category {
             document {
@@ -115,6 +124,31 @@ export const pageQuery = graphql`
               }
             }
           }
+          ... on PrismicPostBodyQuote {
+            slice_type
+            id
+            primary {
+              quote {
+                html
+                text
+              }
+            }
+          }
+          ... on PrismicPostBodyImage {
+            slice_type
+            id
+            primary {
+              image {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1200, quality: 90) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -129,7 +163,10 @@ export const pageQuery = graphql`
           title {
             text
           }
-          date(formatString: "DD.MM.YYYY")
+          subtitle {
+            text
+          }
+          date(formatString: "MM.DD.YYYY")
           categories {
             category {
               document {

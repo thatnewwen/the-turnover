@@ -38,6 +38,7 @@ export default class SliceZone extends Component {
   render() {
     const { allSlices } = this.props;
     const slice = allSlices.map((s) => {
+      console.log(s);
       switch (s.slice_type) {
         // These are the API IDs of the slices
         case "text":
